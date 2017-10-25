@@ -1689,7 +1689,7 @@
 			padding-top: 1.5em;
 		}
 
-		header.special .icon {
+		header.special . {
 			cursor: default;
 			height: 7em;
 			left: 0;
@@ -1849,13 +1849,13 @@
 				top: -0.2em;
 			}
 
-			.icon.circle.fa-twitter {
-				background: #70aecd;
-				color: #fff;
+			.icon.circle.fa-linkedin-square {
+				background: #a9a9a9;
+				color: #0077b5;
 			}
 
-				.icon.circle.fa-twitter:hover {
-					background: #7fb7d2;
+				.icon.circle.fa-linkedin-square:hover {
+					background: #fff;
 				}
 
 			.icon.circle.fa-facebook {
@@ -2509,8 +2509,8 @@
 /* Footer */
 
 	#footer {
-		background: #E8EEF4;
-		color: #7c8081;
+		background: #e1b89b;
+		color: #770909;
 		padding: 5em 5em 10em 5em;
 		text-align: center;
 	}
