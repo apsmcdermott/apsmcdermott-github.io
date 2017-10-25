@@ -1850,8 +1850,8 @@
 			}
 
 			.icon.circle.fa-linkedin-square {
-				background: #a9a9a9;
-				color: #0077b5;
+				background: #ffbe40;
+				color: #B83F34;
 			}
 
 				.icon.circle.fa-linkedin-square:hover {
@@ -1859,7 +1859,7 @@
 				}
 
 			.icon.circle.fa-facebook {
-				background: #7490c3;
+				background: #863F34;
 				color: #fff;
 			}
 
@@ -2509,8 +2509,8 @@
 /* Footer */
 
 	#footer {
-		background: #e1b89b;
-		color: #770909;
+		background: #FF8F47;
+		color: #B83F34;
 		padding: 5em 5em 10em 5em;
 		text-align: center;
 	}
