@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<!--
+Twenty by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>Live Earthquakes</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <link rel="shortcut icon" type="image/x-icon" href="images/deer.jpg" />
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+      #info-box {
+        background-color: #ff8b40;
+        border: 3px;
+        border-color: #a61000;
+        border-style: ridge;
+        /*top: 709px;*/
+        height: 43px;
+        padding: 2px;
+        position: relative;
+        /*right: 375px;*/
+        color: #000000;
+      }
+      #legend {
+        border-radius: 15px;
+        background: white;
+        padding: 5px;
+        margin: 10px;
+        transition: all 0.5s ease  0.5s !important;
+      }
+      #padding-top-bottom-zero{
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+      #margin-top-bottom-zero{
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      
+    </style>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACs00LVeaCdozafp6IOgbzji2Tg_JbEJM"></script>
+  </head>
+
+
+  <body class="no-sidebar">
+  <div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header">
+      <h1 id="logo"><a href="index.html">A. McDermott</a></h1>
+      <nav id="nav">
+        <ul>
+          <li class="current"><a href="index.html">Home</a></li>
+          <li class="submenu">
+            <a href="maps.html">Maps</a>
+            <ul>
+              <li class="no-sidebar.html">
+              <li><a href="yogyakarta.html">Yogyakarta</a></li>
+              <li><a href="threatened-animals.html">Threatened Animal Species</a></li>
+              <li><a href="wilderness-areas.html">US Wilderness Areas</a></li>
+              <li><a href="us-wildfires-google.html">Current Wildfires (Google)</a></li>
+              <li><a href="us-wildfires-esri.html">Current Wildfires (ESRI)</a></li>
+              <li><a href="earthquakes-live.html">Live Earthquakes</a></li>
+              <li><a href="wetlands.html">Wetland Restoration Sites</a></li>
+              <li><a href="alabama.html">2017 Alabama Senate</a></li>
+        </ul>
+        </li>
+      <li><a href="about.html" class="menu">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<!-- Main -->
+<article id="main">
+
+  <header class="special container">
+    <span class="icon fa-map"></span>
+    <h2>Live Global Earthquakes</h2>
+    <h3>With Google API</h3>
+    <p>This map shows live data of earthquakes greater than magnitude 4.5 that have occurred within the past seven days. The data comes from the <a href="https://earthquake.usgs.gov/earthquakes/feed/">USGS real-time feeds</a> in the form of a geoJSON which is updated every 5 minutes. The first map was created in conjunction with the Google Maps API.<br><br>
+
+    An HTML file was created for the map and referenced via an ifram to fill the section below. The full screen version can also be accessed by clicking on the button below. The GeoJSON from USGS was referenced in this HTML file, which calls the live earthquake data to this map. The code for the info box and the proportional circles came from the lab materials, while the rest was stylized using the Google Maps API references/guides, which helped in creating the legend and changing the basemap to streets in night mode.<br><br>
+
+    Colorizing the circles in addition to making them proportional was attempted, but the reference code was unable to integrate into the map successfully. Stylizing the map took the longest time, and finding the reference for the legend took longer than expected. Google Maps API does not seem to be the easiest or perhaps best service for this life data feed display, but it is still possible.</p>
+
+    <footer class="major">
+      <ul class="buttons">
+        <li><a href="earthquakes-live-full.html" class="button">Full Screen</a></li>
+      </ul>
+    </footer>
+  </header>
+
+  <!-- One -->
+  <section class="wrapper style4 container">
+
+    <!-- Content -->
+    <div class="content">
+      <section>
+        <iframe width="100%" height="600px" scrolling="no" frameborder="no" src="earthquakes-live-full.html"></iframe>
+      </section>
+      </article>
+
+    <!-- Footer -->
+    <footer id="footer">
+
+      <ul class="icons">
+        <li><a href="https://www.linkedin.com/in/apsmcdermott/" target="_blank" class="icon circle fa-linkedin-square"><span class="label">Linked-In</span></a></li>
+      </ul>
+
+      <ul class="copyright">
+        <li>&copy; Anna McDermott</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+      </ul>
+
+    </footer>
+
+    </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.dropotron.min.js"></script>
+  <script src="assets/js/jquery.scrolly.min.js"></script>
+  <script src="assets/js/jquery.scrollgress.min.js"></script>
+  <script src="assets/js/skel.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+  <script src="assets/js/main.js"></script>
+
+  </body>
+</html>

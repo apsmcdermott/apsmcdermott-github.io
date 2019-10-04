@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Current Wildfires Full (ESRI)</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Abel|Quicksand|Lato||Source+Sans+Pro" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="images/deer.jpg" />
+    <link rel="stylesheet" href="https://js.arcgis.com/4.5/esri/css/main.css">
+    <script src="https://js.arcgis.com/4.5/"></script>
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
+    <script>
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/layers/KMLLayer",
+      "esri/widgets/ScaleBar",
+      "dojo/domReady!",
+    ], function(
+      Map,
+      MapView,
+      KMLLayer,
+      ScaleBar
+    ) {
+
+      var layer = new KMLLayer({
+        url: "https://fsapps.nwcg.gov/data/kml/conus_latest_lg_incidents.kml" // latest wildfires in continental US
+      });
+
+      var layer1 = new KMLLayer({
+        url: "https://fsapps.nwcg.gov/data/kml/alaska_latest_lg_incidents.kml" // latest wildfires in Alaska
+      });
+
+      var layer2 = new KMLLayer({
+        url: "https://fsapps.nwcg.gov/data/kml/hawaii_latest_lg_incidents.kml" // latest wildfires in Hawaii
+      });
+
+      var map = new Map({
+        basemap: "satellite",
+        layers: [layer]
+      });
+
+      var view = new MapView({
+        container: "viewDiv",
+        map: map
+      });
+
+      var scalebar = new ScaleBar({
+        view: view
+      });
+      view.ui.add(scalebar, "bottom-left");
+
+      layer.then(function() {
+        // once KML layer has loaded, zoom to extent of its features
+        layer.watch("fullExtent", function(fullExtent) {
+          view.extent = fullExtent;
+        });
+      });
+    });
+  </script>
+
+   </head>
+
+  <body>
+   <div id="viewDiv"></div>
+  </body>
+</html>

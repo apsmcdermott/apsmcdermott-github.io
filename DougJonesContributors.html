@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>2017 Alabama Special Senate Election Top 20 Funding Contributors for Doug Jones</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
+        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css' rel='stylesheet' />
+    </head>
+    <body>
+        <div id='map2' style='height: 85vh;'></div>
+
+        <style>
+            .mapboxgl-popup {
+                max-width: 400px;
+                font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            }
+        </style>
+
+        <script>
+
+            mapboxgl.accessToken = 'pk.eyJ1IjoiYXBzbWNkIiwiYSI6ImNqOTZjdDF5bzAzYjcyd21ub3ZmZzE1eXMifQ._XdRGoUWGYU5zSQVHBTNIw';
+            var map2 = new mapboxgl.Map({
+                container: 'map2',
+                style: 'mapbox://styles/apsmcd/cji0x3w3d58ep2sp7b5x3we89',
+                center: [-99, 39],
+                zoom: 3
+            });
+
+            map2.on('load', function () {
+                //California
+                map2.on('click', '311228-CA', function (e) {
+                    console.log(e.features[0].properties);
+                    var text = "<h3>" + e.features[0].properties.NAME + "</h3><p>$" + e.features[0].properties.jonesDonat + ".00 Donated to Doug Jones (D)</p>";
+                    new mapboxgl.Popup()
+                            .setLngLat(e.lngLat)
+                            .setHTML(text)
+                            .addTo(map2);
+                });
+                map2.on('mouseenter', '311228-CA', function () {
+                    map2.getCanvas().style.cursor = 'pointer';
+                });
+                map2.on('mouseleave', '311228-CA', function () {
+                    map2.getCanvas().style.cursor = '';
+                });
+                //Pennsylvania
+                map2.on('click', '25700-PA', function (e) {
+                    console.log(e.features[0].properties);
+                    var text = "<h3>" + e.features[0].properties.NAME + "</h3><p>$" + e.features[0].properties.jonesDonat + ".00 Donated to Doug Jones (D)</p>";
+                    new mapboxgl.Popup()
+                            .setLngLat(e.lngLat)
+                            .setHTML(text)
+                            .addTo(map2);
+                });
+                map2.on('mouseenter', '25700-PA', function () {
+                    map2.getCanvas().style.cursor = 'pointer';
+                });
+                map2.on('mouseleave', '25700-PA', function () {
+                    map2.getCanvas().style.cursor = '';
+                });
+                //Massachussets
+                map2.on('click', '31903-MA', function (e) {
+                    console.log(e.features[0].properties);
+                    var text = "<h3>" + e.features[0].properties.NAME + "</h3><p>$" + e.features[0].properties.jonesDonat + ".00 Donated to Doug Jones (D)</p>";
+                    new mapboxgl.Popup()
+                            .setLngLat(e.lngLat)
+                            .setHTML(text)
+                            .addTo(map2);
+                });
+                map2.on('mouseenter', '31903-MA', function () {
+                    map2.getCanvas().style.cursor = 'pointer';
+                });
+                map2.on('mouseleave', '31903-MA', function () {
+                    map2.getCanvas().style.cursor = '';
+                });
+                //New York
+                map2.on('click', '160974-NY', function (e) {
+                    console.log(e.features[0].properties);
+                    var text = "<h3>" + e.features[0].properties.NAME + "</h3><p>$" + e.features[0].properties.jonesDonat + ".00 Donated to Doug Jones (D)</p>";
+                    new mapboxgl.Popup()
+                            .setLngLat(e.lngLat)
+                            .setHTML(text)
+                            .addTo(map2);
+                });
+                map2.on('mouseenter', '160974-NY', function () {
+                    map2.getCanvas().style.cursor = 'pointer';
+                });
+                map2.on('mouseleave', '160974-NY', function () {
+                    map2.getCanvas().style.cursor = '';
+                });
+                //Warhsington
+                map2.on('click', '67960-WA', function (e) {
+                    console.log(e.features[0].properties);
+                    var text = "<h3>" + e.features[0].properties.NAME + "</h3><p>$" + e.features[0].properties.jonesDonat + ".00 Donated to Doug Jones (D)</p>";
+                    new mapboxgl.Popup()
+                            .setLngLat(e.lngLat)
+                            .setHTML(text)
+                            .addTo(map2);
+                });
+                map2.on('mouseenter', '67960-WA', function () {
+                    map2.getCanvas().style.cursor = 'pointer';
+                });
+                map2.on('mouseleave', '67960-WA', function () {
+                    map2.getCanvas().style.cursor = '';
+                });
+                //Allllabama
+                map2.on('click', '251884-AL', function (e) {
+                    console.log(e.features[0].properties);
+                    var text = "<h3>" + e.features[0].properties.NAME + "</h3><p>$" + e.features[0].properties.jonesDonat + ".00 Donated to Doug Jones (D)</p>";
+                    new mapboxgl.Popup()
+                            .setLngLat(e.lngLat)
+                            .setHTML(text)
+                            .addTo(map2);
+                });
+                map2.on('mouseenter', '251884-AL', function () {
+                    map2.getCanvas().style.cursor = 'pointer';
+                });
+                map2.on('mouseleave', '251884-AL', function () {
+                    map2.getCanvas().style.cursor = '';
+                });
+                //DC (not to be called Washington)
+                map2.on('click', '130555-DC', function (e) {
+                    console.log(e.features[0].properties);
+                    var text = "<h3>" + e.features[0].properties.NAME + "</h3><p>$" + e.features[0].properties.jonesDonat + ".00 Donated to Doug Jones (D)</p>";
+                    new mapboxgl.Popup()
+                            .setLngLat(e.lngLat)
+                            .setHTML(text)
+                            .addTo(map2);
+                });
+                map2.on('mouseenter', '130555-DC', function () {
+                    map2.getCanvas().style.cursor = 'pointer';
+                });
+                map2.on('mouseleave', '130555-DC', function () {
+                    map2.getCanvas().style.cursor = '';
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Live Earthquakes</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Abel|Quicksand|Lato||Source+Sans+Pro" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="images/deer.jpg" />
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+      #info-box {
+        background-color: #ff8b40;
+        border: 3px;
+        border-color: #a61000;
+        border-style: ridge;
+        top: 10px;
+        height: 20px;
+        padding: 10px;
+        position: absolute;
+        right: 50px;
+        color: #000000;
+        opacity: 0.8;
+      }
+      #legend {
+        border-radius: 15px;
+        background: white;
+        bottom: 30px;
+        left: 10px;
+        position: absolute;
+        padding: 5px;
+        margin: 10px;
+        opacity: 0.4;
+        transition: all 0.5s ease  0.5s !important;
+        }
+      #padding-top-bottom-zero{
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+      #margin-top-bottom-zero{
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    </style>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACs00LVeaCdozafp6IOgbzji2Tg_JbEJM"></script>
+  </head>
+
+  <body>
+    <div id="map-canvas"></div>
+        <div id="info-box">Hover Over Instance for Earthquake Information</div>
+        <div id="legend" style="diplay:none">
+       <p><u><img src='images/red_dot_sm.png'></u> ~4.5 magnitude*</p> 
+       <p><u><img src='images/red_dot_med.png'></u> ~5.5 magnitude*</p>
+       <p><u><img src='images/red_dot_lg.png'></u> ~6.5+ magnitude*</p>
+       <p><small>*Size of circles indicate magnitude of quake;<br>sizes and magnitude levels are only approximate</small></p>
+     </div>
+
+        <script>
+          var map;
+          function initialize() {
+            map = new google.maps.Map(document.getElementById('map-canvas'), {
+              zoom: 2,
+              center: {lat: 20, lng: 14},
+              //stylizes basemap in night mode/streets
+              styles: [
+                {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+                {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+                {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+                {
+                  featureType: 'administrative.locality',
+                  elementType: 'labels.text.fill',
+                  stylers: [{color: '#d59563'}]
+                },
+                {
+                  featureType: 'poi',
+                  elementType: 'labels.text.fill',
+                  stylers: [{color: '#d59563'}]
+                },
+                {
+                  featureType: 'poi.park',
+                  elementType: 'geometry',
+                  stylers: [{color: '#263c3f'}]
+                },
+                {
+                  featureType: 'poi.park',
+                  elementType: 'labels.text.fill',
+                  stylers: [{color: '#6b9a76'}]
+                },
+                {
+                  featureType: 'road',
+                  elementType: 'geometry',
+                  stylers: [{color: '#38414e'}]
+                },
+                {
+                  featureType: 'road',
+                  elementType: 'geometry.stroke',
+                  stylers: [{color: '#212a37'}]
+                },
+                {
+                  featureType: 'road',
+                  elementType: 'labels.text.fill',
+                  stylers: [{color: '#9ca5b3'}]
+                },
+                {
+                  featureType: 'road.highway',
+                  elementType: 'geometry',
+                  stylers: [{color: '#746855'}]
+                },
+                {
+                  featureType: 'road.highway',
+                  elementType: 'geometry.stroke',
+                  stylers: [{color: '#1f2835'}]
+                },
+                {
+                  featureType: 'road.highway',
+                  elementType: 'labels.text.fill',
+                  stylers: [{color: '#f3d19c'}]
+                },
+                {
+                  featureType: 'transit',
+                  elementType: 'geometry',
+                  stylers: [{color: '#2f3948'}]
+                },
+                {
+                  featureType: 'transit.station',
+                  elementType: 'labels.text.fill',
+                  stylers: [{color: '#d59563'}]
+                },
+                {
+                  featureType: 'water',
+                  elementType: 'geometry',
+                  stylers: [{color: '#17263c'}]
+                },
+                {
+                  featureType: 'water',
+                  elementType: 'labels.text.fill',
+                  stylers: [{color: '#515c6d'}]
+                },
+                {
+                  featureType: 'water',
+                  elementType: 'labels.text.stroke',
+                  stylers: [{color: '#17263c'}]
+                }
+              ]
+            });
+
+
+            // Load GeoJSON.
+            map.data.loadGeoJson('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson');
+
+            // Set mouseover event for each feature/earthquake
+            map.data.addListener('mouseover', function(event) {
+              document.getElementById('info-box').textContent =
+                event.feature.getProperty("mag") + " Magnitude on the Richter scale, " + " Located " + event.feature.getProperty("place");
+            });
+
+
+            //Sets up icon circle size to vary with quake magnitude (proportional symbols)  
+            map.data.setStyle(function(feature) {
+              var magnitude = feature.getProperty('mag');
+              return {
+                icon: getCircle(magnitude)
+              };
+            });
+
+
+            //Stylizes circles and sets specific sizing instructions
+            function getCircle(magnitude) {
+              var circle = {
+                path: google.maps.SymbolPath.CIRCLE,
+                fillColor: '#FF1800',
+                fillOpacity: .3,
+                scale: Math.pow(3, magnitude) / 36,
+                strokeColor: 'white',
+                strokeWeight: .5
+              };
+              return circle;
+            }
+
+            function eqfeed_callback(results) {
+              map.data.addGeoJson(results);
+            }
+
+
+          }
+
+          google.maps.event.addDomListener(window, 'load', initialize);
+
+        </script>
+  </body>

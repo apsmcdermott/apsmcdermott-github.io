@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>2017 Alabama Special Senate Election Top 20 Funding Contributors for Roy Moore</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
+		<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css' rel='stylesheet' />
+    </head>
+    <body>
+        <div id='map3' style='height: 85vh;'></div>
+        
+		<script>
+
+		mapboxgl.accessToken = 'pk.eyJ1IjoiYXBzbWNkIiwiYSI6ImNqOTZjdDF5bzAzYjcyd21ub3ZmZzE1eXMifQ._XdRGoUWGYU5zSQVHBTNIw';
+		var map3 = new mapboxgl.Map({
+		    container: 'map3',
+		    style: 'mapbox://styles/apsmcd/cji0y6i0159ed2sp75ftnindl', 
+		    center: [-99, 39],
+   			zoom: 3
+		});
+                
+                map3.on('load', function () {
+                //Minnesota
+                map3.on('click', '8400-MN', function (e) {
+                    console.log(e.features[0].properties);
+                    var text = "<h3>" + e.features[0].properties.NAME + "</h3><p>$" + e.features[0].properties.mooreDonat + ".00 Donated to Roy Moore (R)</p>";
+                    new mapboxgl.Popup()
+                            .setLngLat(e.lngLat)
+                            .setHTML(text)
+                            .addTo(map3);
+                });
+                map3.on('mouseenter', '8400-MN', function () {
+                    map3.getCanvas().style.cursor = 'pointer';
+                });
+                map3.on('mouseleave', '8400-MN', function () {
+                    map3.getCanvas().style.cursor = '';
+                });
+                //Louisiana
+                map3.on('click', '20700-LA', function (e) {
+                    console.log(e.features[0].properties);
+                    var text = "<h3>" + e.features[0].properties.NAME + "</h3><p>$" + e.features[0].properties.mooreDonat + ".00 Donated to Roy Moore (R)</p>";
+                    new mapboxgl.Popup()
+                            .setLngLat(e.lngLat)
+                            .setHTML(text)
+                            .addTo(map3);
+                });
+                map3.on('mouseenter', '20700-LA', function () {
+                    map3.getCanvas().style.cursor = 'pointer';
+                });
+                map3.on('mouseleave', '20700-LA', function () {
+                    map3.getCanvas().style.cursor = '';
+                });
+                //Virginia
+                map3.on('click', '16200-VA', function (e) {
+                    console.log(e.features[0].properties);
+                    var text = "<h3>" + e.features[0].properties.NAME + "</h3><p>$" + e.features[0].properties.mooreDonat + ".00 Donated to Roy Moore (R)</p>";
+                    new mapboxgl.Popup()
+                            .setLngLat(e.lngLat)
+                            .setHTML(text)
+                            .addTo(map3);
+                });
+                map3.on('mouseenter', '16200-VA', function () {
+                    map3.getCanvas().style.cursor = 'pointer';
+                });
+                map3.on('mouseleave', '16200-VA', function () {
+                    map3.getCanvas().style.cursor = '';
+                });
+                //Florida
+                map3.on('click', '33750-FL', function (e) {
+                    console.log(e.features[0].properties);
+                    var text = "<h3>" + e.features[0].properties.NAME + "</h3><p>$" + e.features[0].properties.mooreDonat + ".00 Donated to Roy Moore (R)</p>";
+                    new mapboxgl.Popup()
+                            .setLngLat(e.lngLat)
+                            .setHTML(text)
+                            .addTo(map3);
+                });
+                map3.on('mouseenter', '33750-FL', function () {
+                    map3.getCanvas().style.cursor = 'pointer';
+                });
+                map3.on('mouseleave', '33750-FL', function () {
+                    map3.getCanvas().style.cursor = '';
+                });
+                //Alabama
+                map3.on('click', '71475-AL', function (e) {
+                    console.log(e.features[0].properties);
+                    var text = "<h3>" + e.features[0].properties.NAME + "</h3><p>$" + e.features[0].properties.mooreDonat + ".00 Donated to Roy Moore (R)</p>";
+                    new mapboxgl.Popup()
+                            .setLngLat(e.lngLat)
+                            .setHTML(text)
+                            .addTo(map3);
+                });
+                map3.on('mouseenter', '71475-AL', function () {
+                    map3.getCanvas().style.cursor = 'pointer';
+                });
+                map3.on('mouseleave', '71475-AL', function () {
+                    map3.getCanvas().style.cursor = '';
+                });
+                //Texas
+                map3.on('click', '38800-TX', function (e) {
+                    console.log(e.features[0].properties);
+                    var text = "<h3>" + e.features[0].properties.NAME + "</h3><p>$" + e.features[0].properties.mooreDonat + ".00 Donated to Roy Moore (R)</p>";
+                    new mapboxgl.Popup()
+                            .setLngLat(e.lngLat)
+                            .setHTML(text)
+                            .addTo(map3);
+                });
+                map3.on('mouseenter', '38800-TX', function () {
+                    map3.getCanvas().style.cursor = 'pointer';
+                });
+                map3.on('mouseleave', '38800-TX', function () {
+                    map3.getCanvas().style.cursor = '';
+                });
+                //South Carolina
+                map3.on('click', '82074-SC', function (e) {
+                    console.log(e.features[0].properties);
+                    var text = "<h3>" + e.features[0].properties.NAME + "</h3><p>$" + e.features[0].properties.mooreDonat + ".00 Donated to Roy Moore (R)</p>";
+                    new mapboxgl.Popup()
+                            .setLngLat(e.lngLat)
+                            .setHTML(text)
+                            .addTo(map3);
+                });
+                map3.on('mouseenter', '82074-SC', function () {
+                    map3.getCanvas().style.cursor = 'pointer';
+                });
+                map3.on('mouseleave', '82074-SC', function () {
+                    map3.getCanvas().style.cursor = '';
+                });
+                //Georgia
+                map3.on('click', '158700-GA', function (e) {
+                    console.log(e.features[0].properties);
+                    var text = "<h3>" + e.features[0].properties.NAME + "</h3><p>$" + e.features[0].properties.mooreDonat + ".00 Donated to Roy Moore (R)</p>";
+                    new mapboxgl.Popup()
+                            .setLngLat(e.lngLat)
+                            .setHTML(text)
+                            .addTo(map3);
+                });
+                map3.on('mouseenter', '158700-GA', function () {
+                    map3.getCanvas().style.cursor = 'pointer';
+                });
+                map3.on('mouseleave', '158700-GA', function () {
+                    map3.getCanvas().style.cursor = '';
+                });
+                //DC
+                map3.on('click', '10800-DC', function (e) {
+                    console.log(e.features[0].properties);
+                    var text = "<h3>" + e.features[0].properties.NAME + "</h3><p>$" + e.features[0].properties.mooreDonat + ".00 Donated to Roy Moore (R)</p>";
+                    new mapboxgl.Popup()
+                            .setLngLat(e.lngLat)
+                            .setHTML(text)
+                            .addTo(map3);
+                });
+                map3.on('mouseenter', '10800-DC', function () {
+                    map3.getCanvas().style.cursor = 'pointer';
+                });
+                map3.on('mouseleave', '10800-DC', function () {
+                    map3.getCanvas().style.cursor = '';
+                });
+            });
+
+		</script>
+    </body>
+</html>

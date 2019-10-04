@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>2017 Alabama Special Senate Election Results</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
+        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css' rel='stylesheet' />
+    </head>
+    <body>
+        <div id='map' style='height: 85vh;'></div>
+
+        <script>
+            mapboxgl.accessToken = 'pk.eyJ1IjoiYXBzbWNkIiwiYSI6ImNqOTZjdDF5bzAzYjcyd21ub3ZmZzE1eXMifQ._XdRGoUWGYU5zSQVHBTNIw';
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/apsmcd/cji0uv8eu5c0j2snw4pqmp400',
+                center: [-86.90, 32.6],
+                zoom: 5.75
+            });
+
+            map.on('load', function () {
+                map.on('click', 'COUNTIES', function (e) {
+                    console.log(e.features[0].properties);
+                    var county = e.features[0].properties.CNTYNAME;
+                    var totalVoters = e.features[0].properties.CountyTota;
+                    var percentJones = e.features[0].properties.JonesPerc;
+                    var votesJones = e.features[0].properties.Doug_Jones;
+                    var percentMoore = Math.abs(percentJones - 100);
+                    var votesMoore = e.features[0].properties.Roy_Moore;
+                    if (percentJones > percentMoore) {
+                        var winner = "Jones (D)";
+                        var text = "<h3>County: " + county + "</h3><p><b>Winner: </b>" + winner + "</p><p><b>Doug Jones (D) " + percentJones + "%</b>   (" + votesJones + " total votes)</p><p><b> Roy Moore (R) " + percentMoore + "%</b> (" + votesMoore + " total votes)</p><p><b> Total Voters: </b>" + totalVoters;
+                    } else {
+                        var winner = "Moore (R)";
+                        var text = "<h3>County: " + county + "</h3><p><b>Winner: </b>" + winner + "</p><p><b>Roy Moore (R) " + percentMoore + "%</b>   (" + votesMoore + " total votes)</p><p><b> Doug Jones (D) " + percentJones + "%</b> (" + votesJones + " total votes)</p><p><b> Total Voters: </b>" + totalVoters;
+                    }
+                    //var text = "<h3>" + e.features[0].properties.NAME + "</h3><p>$" + e.features[0].properties.mooreDonat + ".00 Donated to Roy Moore (R)</p>";
+
+                    
+
+                    new mapboxgl.Popup()
+                            .setLngLat(e.lngLat)
+                            .setHTML(text)
+                            .addTo(map);
+                });
+                map.on('mouseenter', 'COUNTIES', function () {
+                    map.getCanvas().style.cursor = 'pointer';
+                });
+                map.on('mouseleave', 'COUNTIES', function () {
+                    map.getCanvas().style.cursor = '';
+                });
+
+            });
+
+        </script>
+    </body>
+</html>

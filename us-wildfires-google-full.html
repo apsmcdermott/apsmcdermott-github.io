@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Current Wildfires (Google)</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="shortcut icon" type="image/x-icon" href="images/deer.jpg" />
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACs00LVeaCdozafp6IOgbzji2Tg_JbEJM"></script>
+		<style>
+      		html, body, #map-canvas {
+        		height: 100%;
+        		margin: 0px;
+        		padding: 0px
+      		}
+    	</style>
+	</head>
+
+	<body>
+		<div id="map-canvas"></div>
+    
+		<script>
+		var map;
+		function initialize() {
+			map = new google.maps.Map(document.getElementById('map-canvas'), {
+			zoom: 4,
+			center: {lat: 45, lng: -107},
+			//stylizes basemap as satellite
+			mapTypeId: google.maps.MapTypeId.SATELLITE
+		});
+				
+		//Calls the RSS/KML live data feed
+		//Obtained from https://fsapps.nwcg.gov/googleearth.php
+		var georssLayerconus = new google.maps.KmlLayer({
+			url: 'https://fsapps.nwcg.gov/data/kml/conus_latest_lg_incidents.kml',
+			//keeps zoom and center of map in your control
+			preserveViewport: true,
+		});
+		georssLayerconus.setMap(map);
+
+		var georssLayeralaska = new google.maps.KmlLayer({
+			url: 'https://fsapps.nwcg.gov/data/kml/alaska_latest_lg_incidents.kml',
+			//keeps zoom and center of map in your control
+			preserveViewport: true,
+		});
+		georssLayeralaska.setMap(map);
+
+		var georssLayerhawaii = new google.maps.KmlLayer({
+			url: 'https://fsapps.nwcg.gov/data/kml/hawaii_latest_lg_incidents.kml',
+			//keeps zoom and center of map in your control
+			preserveViewport: true,
+		});
+		georssLayerhawaii.setMap(map);
+		}
+
+		google.maps.event.addDomListener(window, 'load', initialize);
+
+		</script>
+	</body>
+</html>
