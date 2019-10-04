@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<!--
+	Twenty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Threatened Animals by Country</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	
+	<style>
+		#map {
+			width: 100%;
+			height: 700px;
+		}
+
+		.info {
+			padding: 6px 8px;
+			font: 14px/16px Arial, Helvetical, sans-serif;
+			background: white;
+			background: rgba(255,255,255,0.8);
+			box-shadow: 0 0 15px rgba(0,0,0,0.2);
+			border-radius: 5px
+		}
+
+		.info h4 {
+			margin: 0 0 5px;
+			color: #777;
+		}
+
+		.legend {
+			text-align: left;
+			line-height: 18px;
+			color: #555;
+		}
+
+		.legend i {
+			width: 18px;
+			height: 18px;
+			float: left;
+			margin-right: 8px;
+			opacity: 0.7;
+		}
+	</style>
+
+	</head>
+
+	<body class="no-sidebar">
+		<div id="page-wrapper">
+
+			<!--Header-->
+				<header id="header">
+					<h1 id="logo"><a href="index.html">A. McDermott</a></h1>
+					<nav id="nav">
+						<ul>
+							<li class="current"><a href="index.html">Home</a></li>
+							<li class="submenu">
+								<a href="maps.html">Maps</a>
+								<ul>
+									<!--<li><a href="left-sidebar.html">Left Sidebar</a></li>
+									<li><a href="right-sidebar.html">About Me</a></li>-->
+									<!--<li><a href="no-sidebar.html">No Sidebar</a></li>
+									<li><a href="contact.html">Contact</a></li>-->
+									<li class="no-sidebar.html">
+										<li><a href="yogyakarta.html">Yogyakarta</a></li>
+										<li><a href="threatened-animals.html">Threatened Animals by Country</a></li>
+										<!--<ul>
+											<li><a href="#">Yogyakarta</a></li>
+											<li><a href="#">Consequat</a></li>
+											<li><a href="#">Lorem Magna</a></li>
+											<li><a href="#">Sed Magna</a></li>
+											<li><a href="#">Ipsum Nisl</a></li>
+										</ul>-->
+									</li>
+								</ul>
+							</li>
+							<li><a href="about.html" class="menu">About</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+				<article id="main">
+
+					<header class="special container">
+						<span class="icon fa-map"></span>
+						<h2>Percentage of Animal Species Threatened per Country</h2>
+						
+					</header>
+
+					<!-- One -->
+						<section class="wrapper style4 container">
+
+				<body>
+
+					<div id="map"></div>
+
+				<script type="text/javascript" src="//students.washington.edu/apsmcd/js/threatened_animals.js"></script>
+	
+
+				<script>
+
+		
+				var map = L.map('map').setView([ 24.622, 8.55], 2);
+
+				L.tileLayer('http://{s}.tile.stamen.com/terrain/{z}/{x}/{y}.png', {
+				attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> — Map data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+				subdomains: 'abcd',
+			
+				}).addTo(map);
+
+
+				//adds geoJSON file but no style
+				L.geoJson(animals).addTo(map);	
+
+
+				//adds white box in top right, shows what user is hovering over
+				var info = L.control();
+
+				info.onAdd = function (map) {
+					this._div = L.DomUtil.create('div', 'info');
+					this.update();
+					return this._div;
+				};
+
+
+				//property names=attribute titles
+				info.update = function (props) {
+					this._div.innerHTML = '<h4>Percentage of Animals Under IUCN Threatened Status</h4>' +  (props ?
+					<b> + props.NAME + </b><br />
+					props.animCount + '2017 IUCN Red List of critically endangered, endangered, and vulnerable animals in each country'
+					: 'Hover over a cell');
+				};
+
+				info.addTo(map);
+
+
+				//set color scheme
+				function getColor(d) {
+			return d > 20 ? '#800026' :
+			       d > 15  ? '#E31A1C' :
+			       d > 10   ? '#FD8D3C' :
+			       d > 5   ? '#FEB24C' :
+			       d > 0   ? '#FED976' :
+			                 '#FFEDA0';
+				}
+
+
+				//styles polygons so fill changes with associated value
+				function style(feature) {
+    		return {
+        		fillColor: getColor(feature.properties.animCount),
+        		weight: 2,
+        		opacity: 1,
+        		color: 'white',
+        		dashArray: '3',
+        		fillOpacity: 0.4
+    				};
+				}
+
+
+				//highlights features
+				function highlightFeature(e) {
+				var layer = e.target;
+
+				layer.setStyle({
+					weight: 5,
+					color: '#666',
+					dashArray: '',
+					fillOpacity: 0.1
+				});
+
+				if (!L.Browser.ie && !L.Browser.opera) {
+				layer.bringToFront();
+				}
+
+				info.update(layer.feature.properties);
+				}
+				L.geoJson(animals, {style: style}).addTo(map);
+
+
+				var geojson;
+
+				function resetHighlight(e) {
+					geojson.resetStyle(e.target);
+					info.update();
+				}
+
+				function zoomToFeature(e) {
+					map.fitBounds(e.target.getBounds());
+				}
+
+				function onEachFeature(feature, layer) {
+					layer.on({
+						mouseover: highlightFeature,
+						mouseout: resetHighlight,
+						click: zoomToFeature
+					});
+				}
+
+
+				//style specific to file
+
+				geojson = L.geoJson(animals, {
+					style: style,
+					onEachFeature: onEachFeature
+				}).addTo(map);
+
+				map.attributionControl.addAttribution('IUCN Red List &copy; <a href="http://www.iucnredlist.org/about/summary-statistics">Open IUCN Red List Summary Statistics</a>');
+
+
+				//the static legend in the bottom right
+				var legend = L.control({position: 'bottomright'});
+
+				legend.onAdd = function (map) {
+
+				var div = L.DomUtil.create('div', 'info legend'),
+						grades = [0, 5, 10, 15, 20, ],
+						key_labels = [ "0-5", "6-10", "11-15", '16-20', '20+'],
+						labels = ["Number of reported cases"],
+						from, to;
+
+								
+
+				for (var i = 0; i < grades.length; i++) {
+					from = grades[i];
+					to = grades[i + 1];
+
+					labels.push(
+						'<i style="background:' + getColor(from + 1) + '"></i> ' +
+						 key_labels[i]);
+				}
+
+				div.innerHTML = labels.join('<br>');
+				return div;
+				};
+
+				legend.addTo(map);
+
+				map.on('click', onMapClick);
+
+
+				</script>
+
+				</article>
+
+			<!-- Footer -->
+				<footer id="footer">
+
+					<ul class="icons">
+						<li><a href="https://www.linkedin.com/in/apsmcdermott/" target="_blank" class="icon circle fa-linkedin-square"><span class="label">Linked-In</span></a></li>
+					</ul>
+
+					<ul class="copyright">
+						<li>&copy; Anna McDermott</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollgress.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+</body>
+</html>
