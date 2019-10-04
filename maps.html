@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<link rel="shortcut icon" type="image/x-icon" href="images/deer.jpg" />
 	</head>
 	<body class="right-sidebar">
 		<div id="page-wrapper">
@@ -31,7 +32,14 @@
 									<!--<li><a href="no-sidebar.html">No Sidebar</a></li>
 									<li><a href="contact.html">Contact</a></li>-->
 									<li class="no-sidebar.html">
-										<a href="yogyakarta.html">Yogyakarta</a>
+										<li><a href="yogyakarta.html">Yogyakarta</a></li>
+										<li><a href="threatened-animals.html">Threatened Animal Species</a></li>
+										<li><a href="wilderness-areas.html">US Wilderness Areas</a></li>
+										<li><a href="us-wildfires-google.html">Current Wildfires (Google)</a></li>
+										<li><a href="us-wildfires-esri.html">Current Wildfires (ESRI)</a></li>
+										<li><a href="earthquakes-live.html">Live Earthquakes</a></li>
+										<li><a href="wetlands.html">Wetland Restoration Sites</a></li>
+										<li><a href="alabama.html">2017 Alabama Senate</a></li>
 										<!--<ul>
 											<li><a href="#">Yogyakarta</a></li>
 											<li><a href="#">Consequat</a></li>
@@ -47,24 +55,22 @@
 					</nav>
 				</header>
 
-
-			<!--Map Grid 3x3-->
 				<section class="wrapper style1 container special">
+
+					<header class="major">
+						
+					</header>
+							
 
 						<body>
 							<header><br><br><h2>My <strong>maps</strong></h2></header>
-							<section>
-								<p>These are maps I have created through my geospatial studies at the University of Washington in Tacoma.
-								</p><br>
-							</section>
-							<section>
-								<p>First maps coming soon! In the meantime, you can take a look at the map of Yogyakarta below.
-								</p><br>
-							</section>
-							<section>
-								<p>Web maps are useful tools for interactive visuals of geographic phenomena. They can be reference maps or a maps showing statistics or qualitative aspects (called thematic maps), and either way can be used to reach a wide audience.
-								</p><br>
-							</section>
+							<p>
+								These are maps I have created through my geospatial studies at the University of Washington in Tacoma.<br><br>
+
+								First maps coming soon! In the meantime, you can take a look at the map of Yogyakarta below.<br><br>
+
+								Web maps are useful tools for interactive visuals of geographic phenomena. They can be reference maps or a maps showing statistics or qualitative aspects (called thematic maps), and either way can be used to reach a wide audience.<br>
+							</p>
 							
 							<div class="row">
 								<div class="4u 12u(narrower)">
@@ -74,47 +80,110 @@
 										<header>
 											<h3>Yogyakarta, Java, Indonesia</h3>
 										</header>
-										<p>Image taken on top of Borobudur, a Buddhist temple outside of Yogyakarta;<br>
+										<p>Google API<br>
 										Photo by Marc Schmittbuhl</p>
 									</section>
 
 								</div>
-								<!--
+
 								<div class="4u 12u(narrower)">
 
 									<section>
-										<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
+										<a href="threatened-animals.html" class="image featured"><img src="images/tiger_snow.jpg" alt="Global map of threatened animals" /></a>
 										<header>
-											<h3>An Airport Terminal</h3>
+											<h3>Threatened Animal Species</h3>
+											<p>Choropleth map using geoJSON</p>
 										</header>
-										<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
+									</section>
+
+								</div>
+								
+								<div class="4u 12u(narrower)">
+
+									<section>
+										<a href="wilderness-areas.html" class="image featured"><img src="images/wilderness4.jpg" alt="Wilderness Areas" /></a>
+										<header>
+											<h3>Designated U.S. Wilderness Areas</h3>
+											<p>REST Server API</p>
+										</header>
 									</section>
 
 								</div>
 							</div>
+
 							<div class="row">
 								<div class="4u 12u(narrower)">
 
 									<section>
-										<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+										<a href="us-wildfires-google.html" class="image featured"><img src="images/wildfire_google.jpg" alt="Forest Wildfire" /></a>
 										<header>
-											<h3>Hyperspace Travel</h3>
+											<h3>US Wildfires (Live)</h3>
+											<p>Google Maps API and KML</p>
 										</header>
-										<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
 									</section>
 
 								</div>
 								<div class="4u 12u(narrower)">
 
 									<section>
-										<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
+										<a href="us-wildfires-esri.html" class="image featured"><img src="images/wildfire_esri.jpg" alt="Wildfire Doused with Water from Helicopter" /></a>
 										<header>
-											<h3>And Another Train</h3>
+											<h3>US Wildfires (Live)</h3>
+											<p>ESRI ArcGIS API and KML</p>
 										</header>
-										<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
+									</section>
+
+								</div>
+								<div class="4u 12u(narrower)">
+
+									<section>
+										<a href="earthquakes-live.html" class="image featured"><img src="images/quakes_google.jpg" alt="Aftermath of Earthquake" /></a>
+										<header>
+											<h3>Global Earthquakes (Live)</h3>
+											<p>Google Maps API and GeoJSON</p>
+										</header>
+									</section>
+
+								</div>
+							</div>
+
+							<div class="row">
+
+								<div class="4u 12u(narrower)">
+
+									<section>
+										<a href="wetlands.html" class="image featured"><img src="images/egret.jpg" alt="Egret in a Wetland" /></a>
+										<header>
+											<h3>Wetland Restoration Sites</h3>
+											<p>ArcGIS WebAppBuilder and Story Map</p>
+										</header>
+									</section>
+								</div>
+
+								<div class="4u 12u(narrower)">
+
+									<section>
+										<a href="alabama.html" class="image featured"><img src="images/alabama.JPG" alt="2017 Alabama Special Election Results" /></a>
+										<header>
+											<h3>2017 Alabama Senate Election</h3>
+											<p>Story Map with Mapbox</p>
+										</header>
+									</section>
+
+								</div>
+
+								<!--<div class="4u 12u(narrower)">
+
+									<section>
+										<a href="earthquakes-live.html" class="image featured"><img src="images/quakes_google.jpg" alt="Aftermath of Earthquake" /></a>
+										<header>
+											<h3>Global Earthquakes (Live)</h3>
+											<p>Google Maps API and GeoJSON</p>
+										</header>
 									</section>
 
 								</div>-->
+
 							</div>
 						</body>
 					</section>
