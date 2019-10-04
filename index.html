@@ -13,6 +13,8 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	<!--browser tab icon-->
+		<link rel="shortcut icon" type="image/x-icon" href="images/deer.jpg" />
 	</head>
 	<body class="index">
 		<div id="page-wrapper">
@@ -31,7 +33,14 @@
 									<!--<li><a href="no-sidebar.html">No Sidebar</a></li>
 									<li><a href="contact.html">Contact</a></li>-->
 									<li class="no-sidebar.html">
-										<a href="yogyakarta.html">Yogyakarta</a>
+										<li><a href="yogyakarta.html">Yogyakarta</a></li>
+										<li><a href="threatened-animals.html">Threatened Animal Species</a></li>
+										<li><a href="wilderness-areas.html">US Wilderness Areas</a></li>
+										<li><a href="us-wildfires-google.html">Current Wildfires (Google)</a></li>
+										<li><a href="us-wildfires-esri.html">Current Wildfires (ESRI)</a></li>
+										<li><a href="earthquakes-live.html">Live Earthquakes</a></li>
+										<li><a href="wetlands.html">Wetland Restoration Sites</a></li>
+										<li><a href="alabama.html">2017 Alabama Senate</a></li>
 										<!--<ul>
 											<li><a href="#">Yogyakarta</a></li>
 											<li><a href="#">Consequat</a></li>
@@ -62,7 +71,8 @@
 							<h2>Anna McDermott</h2>
 						</header>
 						<p>Master of<br>
-							<strong>Geospatial Technologies</strong>
+							<strong>Geospatial Technologies</strong><br>
+							Candidate 
 						</p>
 						<footer>
 							<ul class="buttons vertical">
@@ -171,63 +181,58 @@
 								<div class="6u 12u(narrower)">
 
 									<section>
-										<a href="yogyakarta.html" class="image featured"><img src="images/borobudur.jpg" alt="Image taken on top of Borobudur, a Buddhist temple outside of Yogyakarta. Photo credit: Marc Schmittbuhl" /></a>
+										<a href="threatened-animals.html" class="image featured"><img src="images/tiger_snow.jpg" alt="Global map of threatened animals" /></a>
 										<header>
-											<h3>Yogyakarta, Java, Indonesia</h3>
+											<h3>Threatened Animal Species per Country</h3>
+											<p>Choropleth map using geoJSON</p>
 										</header>
-										<p>Photo by Marc Schmittbuhl</p>
 									</section>
-
+								
 								</div>
 
+								
 								<div class="6u 12u(narrower)">
 
 									<section>
-										<a href="threatened-animals.html" class="image featured"><img src="images/borobudur.jpg" alt="Global map of threatened animals" /></a>
+										<a href="wilderness-areas.html" class="image featured"><img src="images/wilderness4.jpg" alt="Wilderness Areas" /></a>
 										<header>
-											<h3>Threatened Animals by Country</h3>
+											<h3>Designated U.S. Wilderness Areas</h3>
+											<p>REST Server API</p>
 										</header>
 									</section>
 
 								</div>
-								<!--<div class="6u 12u(narrower)">
-
-									<section>
-										<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
-										<header>
-											<h3>An Airport Terminal</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-									</section>
-
-								</div>
-							</div>
+							<!--
 							<div class="row">
 								<div class="6u 12u(narrower)">
 
 									<section>
-										<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+										<a href="wilderness-areas.html" class="image featured"><img src="images/wilderness4.jpg" alt="Wilderness Areas" /></a>
 										<header>
-											<h3>Hyperspace Travel</h3>
+											<h3>Designated U.S. Wilderness Areas</h3>
+											<p>REST Server API</p>
 										</header>
-										<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
 									</section>
 
 								</div>
+
+								
 								<div class="6u 12u(narrower)">
 
 									<section>
-										<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
+										<a href="yogyakarta.html" class="image featured"><img src="images/borobudur.jpg" alt="Image taken on top of Borobudur, a Buddhist temple outside of Yogyakarta. Photo credit: Marc Schmittbuhl" /></a>
 										<header>
-											<h3>And Another Train</h3>
+											<h3>Yogyakarta, Java, Indonesia</h3>
 										</header>
-										<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
+										<p>Google API<br>
+										Photo by Marc Schmittbuhl</p>
 									</section>
 
 								</div>-->
 							</div>
 
-							<footer class="major">
+
+							<footer class="major" align="center">
 								<ul class="buttons">
 									<li><a href="maps.html" class="button">See More</a></li>
 								</ul>
@@ -244,13 +249,11 @@
 					<ul class="icons">
 						<li><a href="https://www.linkedin.com/in/apsmcdermott/" target="_blank" class="icon circle fa-linkedin-square"><span class="label">Linked-In</span></a></li>
 					</ul>
-					<!--<ul class="icons">
-						<li><a href="#" class="icon circle fa-linked-in"><span class="label">Linked-In</span></a></li>
-						<li><a href="#" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
+						<!--<li><a href="#" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
 						<li><a href="#" class="icon circle fa-google-plus"><span class="label">Google+</span></a></li>
 						<li><a href="#" class="icon circle fa-github"><span class="label">Github</span></a></li>
-						<li><a href="#" class="icon circle fa-dribbble"><span class="label">Dribbble</span></a></li>
-					</ul>-->
+						<li><a href="#" class="icon circle fa-dribbble"><span class="label">Dribbble</span></a></li>-->
+					
 
 					<ul class="copyright">
 						<li>&copy; Anna McDermott</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
