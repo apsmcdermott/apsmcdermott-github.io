@@ -2395,7 +2395,7 @@
 	#banner {
 		background-attachment: scroll, scroll, scroll, fixed;
 		background-color: #770909;
-		background-image: url("images/light-bl.svg"), url("images/light-br.svg"), url("images/sunset.jpg"), url("images/sunset.jpg");
+		background-image: url("images/light-bl.svg"), url("images/light-br.svg"), url("images/tetons.jpg"), url("images/tetons.jpg");
 		background-position: bottom left, bottom right, top left, top center;
 		background-repeat: no-repeat, no-repeat, repeat, no-repeat;
 		background-size: 25em, 25em, auto, cover;
